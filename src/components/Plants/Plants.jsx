@@ -1,4 +1,5 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom';
 
 let plants = [
   "https://gardeningsolutions.ifas.ufl.edu/mastergardener/outreach/plant_id/images/flowers/bird_paradise_flower.jpg",
@@ -9,6 +10,19 @@ let plants = [
 ]
 
 function Plants() {
+  const history = useHistory();
+
+  const handleClick = () => {
+    // alert('heading home');
+    // change location?
+    history.push('/');
+  }
+
+  const backClick = () => {
+    //go back
+    history.goBack();
+  }
+
   return (
     <div>
       <h1>PLANTS</h1>
@@ -18,6 +32,8 @@ function Plants() {
           src={plant}
         />
       )}
+      <button onClick={handleClick}>GO HOME</button>
+      <button onClick={backClick}>GO BACK</button>
     </div>
   );
 }
